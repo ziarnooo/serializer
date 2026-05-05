@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Serializer records your form flow once. One click replays it — locally, privately, instantly. A Chrome extension for medical professionals.">
+  <title>Serializer — Fill any form once. Never again.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <p class="label hero-label">Chrome Extension&nbsp;&nbsp;·&nbsp;&nbsp;Free&nbsp;&nbsp;·&nbsp;&nbsp;No Account</p>
+      <h1 class="hero-headline hero-animate">You fill this form<br>every day.<br>Stop.</h1>
+      <p class="hero-sub hero-animate">Serializer records your form flow once.<br>One click replays it — locally, privately, instantly.</p>
+      <a href="serializer.zip" class="btn-primary btn-download hero-animate">Add to Chrome — Free</a>
+      <p class="trust-line hero-animate">Works offline&nbsp;&nbsp;·&nbsp;&nbsp;No data leaves your browser&nbsp;&nbsp;·&nbsp;&nbsp;No account required</p>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCT DEMO ─── -->
+  <section class="demo" id="demo">
+    <div class="container">
+      <p class="label reveal">See It In Action</p>
+      <p class="demo-caption reveal">A form template — recorded, saved, replayed.</p>
+
+      <div class="demo-phases reveal" id="demo-phases">
+        <div class="demo-phase-item" id="dpi-0">
+          <span class="dpi-num">01</span>
+          <span class="dpi-label">Record</span>
+        </div>
+        <div class="demo-phase-sep"></div>
+        <div class="demo-phase-item" id="dpi-1">
+          <span class="dpi-num">02</span>
+          <span class="dpi-label">Save</span>
+        </div>
+        <div class="demo-phase-sep"></div>
+        <div class="demo-phase-item" id="dpi-2">
+          <span class="dpi-num">03</span>
+          <span class="dpi-label">Replay</span>
+        </div>
+      </div>
+
+      <div class="demo-window reveal" id="demo-window">
+        <!-- Browser chrome -->
+        <div class="demo-bar">
+          <div class="demo-traffic">
+            <span class="demo-dot demo-dot-r"></span>
+            <span class="demo-dot demo-dot-y"></span>
+            <span class="demo-dot demo-dot-g"></span>
+          </div>
+          <div class="demo-url-bar">ehr.hospital.org/patient/new-visit</div>
+          <div class="demo-rec-badge" id="demo-rec">&#9679;&nbsp;REC</div>
+        </div>
+        <!-- Content area -->
+        <div class="demo-body">
+          <!-- Form -->
+          <div class="demo-form-area">
+            <p class="demo-form-heading">New Visit</p>
+            <div class="demo-fields">
+              <div class="demo-field" id="df-0">
+                <span class="demo-field-lbl">Patient name</span>
+                <div class="demo-field-val" id="dv-0"></div>
+              </div>
+              <div class="demo-field" id="df-1">
+                <span class="demo-field-lbl">Date</span>
+                <div class="demo-field-val" id="dv-1"></div>
+              </div>
+              <div class="demo-field" id="df-2">
+                <span class="demo-field-lbl">Heart rate</span>
+                <div class="demo-field-val" id="dv-2"></div>
+              </div>
+              <div class="demo-field" id="df-3">
+                <span class="demo-field-lbl">Diagnosis</span>
+                <div class="demo-field-val" id="dv-3"></div>
+              </div>
+              <div class="demo-field" id="df-4">
+                <span class="demo-field-lbl">Notes</span>
+                <div class="demo-field-val demo-field-val--tall" id="dv-4"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Serializer side panel -->
+          <aside class="demo-panel">
+            <div class="demo-panel-top">
+              <span class="demo-panel-icon">S</span>
+              <span class="demo-panel-name">Serializer</span>
+            </div>
+            <div class="demo-panel-body" id="demo-panel-body"></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="how" id="how">
+    <div class="container">
+      <p class="label reveal">How It Works</p>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">01</span>
+          <div class="step-content">
+            <h3>Record</h3>
+            <p>Open a form. Click the fields you want filled. Type the default values. Serializer remembers every step. Takes about two minutes.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">02</span>
+          <div class="step-content">
+            <h3>Save</h3>
+            <p>Give the template a name. It's stored locally in your browser. Nothing is sent anywhere.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <span class="step-num">03</span>
+          <div class="step-content">
+            <h3>Replay</h3>
+            <p>Next visit, click "Fill form." Fields fill in seconds. Review. Submit when you're ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── KEY FEATURES ─── -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="label reveal">What It Does</p>
+      <div class="features-grid">
+        <div class="feature reveal">
+          <h4>Works on Any Form</h4>
+          <p>No integration with your EHR required. Serializer works on any website, any form.</p>
+        </div>
+        <div class="feature reveal">
+          <h4>Multi-Page Forms</h4>
+          <p>Navigate across pages automatically. The template follows the full flow.</p>
+        </div>
+        <div class="feature reveal">
+          <h4>Fully Local</h4>
+          <p>Everything stays in your browser. No server. No cloud. No subscription.</p>
+        </div>
+        <div class="feature reveal">
+          <h4>You Stay in Control</h4>
+          <p>Serializer fills fields. You submit. The final action is always yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── THE PROBLEM ─── -->
+  <section class="problem" id="problem">
+    <div class="container container--narrow">
+      <p class="label reveal">The Daily Grind</p>
+      <h2 class="reveal">Same form.<br>Same fields.<br>Every. Single. Day.</h2>
+      <div class="problem-body">
+        <p class="reveal">Patient arrives. You open the EHR.<br>Name. Date. Vitals. Diagnosis code.<br>The same 14 fields you filled yesterday.<br>And the day before.</p>
+        <p class="reveal">That is not medicine.<br>That is data entry.</p>
+      </div>
+      <hr class="divider reveal">
+      <p class="problem-resolution reveal">Serializer gives those minutes back.</p>
+    </div>
+  </section>
+
+  <!-- ─── THE NUMBER ─── -->
+  <section class="number-section" id="number">
+    <div class="container container--center">
+      <div class="big-number reveal">60+</div>
+      <p class="number-label reveal">minutes saved<br>per day</p>
+      <p class="number-note reveal">Based on 12 patient visits at ~5 min of form work each, reduced to ~5 seconds per fill.</p>
+    </div>
+  </section>
+
+  <!-- ─── BUILT FOR TRUST ─── -->
+  <section class="trust" id="trust">
+    <div class="container container--narrow">
+      <p class="label reveal">Privacy by Design</p>
+      <h2 class="reveal">Zero network calls.<br>Not one.</h2>
+      <div class="trust-body">
+        <p class="reveal">No telemetry. No analytics. No error reporting.<br>No account. No login. No email.</p>
+        <p class="reveal">Your form data never leaves your machine.<br>It's enforced in code — not just promised.</p>
+      </div>
+      <div class="csp-block reveal">
+        <code>Content-Security-Policy: connect-src 'self'</code>
+        <p>That means the extension literally cannot make external requests.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHO IT'S FOR ─── -->
+  <section class="audience" id="audience">
+    <div class="container">
+      <p class="label reveal">Who Uses Serializer</p>
+      <div class="audience-list">
+        <div class="audience-item reveal">
+          <strong>Physicians</strong>
+          <span>Filling the same visit documentation daily.</span>
+        </div>
+        <div class="audience-item reveal">
+          <strong>Nurses</strong>
+          <span>Vital signs, medication records, handover notes.</span>
+        </div>
+        <div class="audience-item reveal">
+          <strong>Administrative</strong>
+          <span>Patient intake, insurance forms, registrations.</span>
+        </div>
+        <div class="audience-item reveal">
+          <strong>Anyone</strong>
+          <span>Who fills the same web form more than once a week.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="cta-final" id="cta-final">
+    <div class="container container--center">
+      <h2 class="reveal">One install.<br>Yours forever.</h2>
+      <a href="serializer.zip" class="btn-primary btn-download reveal">Add to Chrome — Free</a>
+      <p class="trust-line reveal">Open source&nbsp;&nbsp;·&nbsp;&nbsp;No account&nbsp;&nbsp;·&nbsp;&nbsp;Works offline</p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <p>Serializer © 2025&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">GitHub</a>&nbsp;&nbsp;·&nbsp;&nbsp;We collect nothing.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

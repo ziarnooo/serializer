@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install Serializer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="install.css">
+</head>
+<body>
+
+  <div class="inst-wrap">
+
+    <!-- Back link -->
+    <a href="index.html" class="inst-back">← serializer</a>
+
+    <!-- Header -->
+    <header class="inst-header">
+      <p class="label">Download started</p>
+      <h1 class="inst-title">One more step.</h1>
+      <p class="inst-sub">The extension isn't on the Chrome Web Store yet — it needs a quick manual install. Takes 30 seconds.</p>
+    </header>
+
+    <!-- Install steps -->
+    <section class="inst-steps">
+      <p class="label">How to install</p>
+      <ol class="inst-list">
+        <li class="inst-step">
+          <span class="inst-num">1</span>
+          <div class="inst-step-body">
+            <strong>Extract the ZIP</strong>
+            <p>Find <code>serializer.zip</code> in your downloads and extract it to any folder.</p>
+          </div>
+        </li>
+        <li class="inst-step">
+          <span class="inst-num">2</span>
+          <div class="inst-step-body">
+            <strong>Open Chrome extensions</strong>
+            <p>In Chrome, navigate to <code>chrome://extensions</code></p>
+          </div>
+        </li>
+        <li class="inst-step">
+          <span class="inst-num">3</span>
+          <div class="inst-step-body">
+            <strong>Enable Developer mode</strong>
+            <p>Toggle the "Developer mode" switch in the top-right corner of that page.</p>
+          </div>
+        </li>
+        <li class="inst-step">
+          <span class="inst-num">4</span>
+          <div class="inst-step-body">
+            <strong>Load unpacked</strong>
+            <p>Click "Load unpacked" and select the folder you just extracted.</p>
+          </div>
+        </li>
+        <li class="inst-step">
+          <span class="inst-num">5</span>
+          <div class="inst-step-body">
+            <strong>Pin the extension</strong>
+            <p>Click the puzzle icon in Chrome's toolbar and pin Serializer for quick access.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Email capture -->
+    <!--
+      EMAIL SETUP — Formspree (free, zero backend)
+      1. Go to https://formspree.io and sign up (free)
+      2. Create a new form — it gives you an ID like "xpwzgvnl"
+      3. Replace YOUR_FORM_ID below with that ID
+      4. Formspree emails you at your signup address every time someone submits
+      No server, no database, no code to deploy.
+    -->
+    <section class="inst-email">
+      <p class="label">Stay in the loop</p>
+      <h2 class="inst-email-title">Get notified when Serializer<br>hits the Chrome Web Store.</h2>
+      <p class="inst-email-sub">No spam. One email when it's officially live.</p>
+
+      <form
+        id="notify-form"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        class="notify-form"
+      >
+        <!-- Hidden fields give you context in the notification email -->
+        <input type="hidden" name="_subject" value="New Serializer install">
+        <input type="hidden" name="source" value="install page">
+
+        <div class="notify-row">
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+            class="notify-input"
+          >
+          <button type="submit" class="notify-btn">Notify me</button>
+        </div>
+        <p class="notify-privacy">Your email is only used for this one notification.</p>
+      </form>
+
+      <div class="notify-success" id="notify-success">
+        You're on the list.
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="inst-footer">
+      <p>Serializer © 2025&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#">GitHub</a>&nbsp;&nbsp;·&nbsp;&nbsp;We collect nothing.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('notify-form');
+    const success = document.getElementById('notify-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.notify-btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
