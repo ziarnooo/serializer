@@ -66,29 +66,12 @@
       </ol>
     </section>
 
-    <!-- Email capture -->
-    <!--
-      EMAIL SETUP — Formspree (free, zero backend)
-      1. Go to https://formspree.io and sign up (free)
-      2. Create a new form — it gives you an ID like "xpwzgvnl"
-      3. Replace YOUR_FORM_ID below with that ID
-      4. Formspree emails you at your signup address every time someone submits
-      No server, no database, no code to deploy.
-    -->
     <section class="inst-email">
       <p class="label">Stay in the loop</p>
       <h2 class="inst-email-title">Get notified when Serializer<br>hits the Chrome Web Store.</h2>
       <p class="inst-email-sub">No spam. One email when it's officially live.</p>
 
-      <form
-        id="notify-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-        class="notify-form"
-      >
-        <!-- Hidden fields give you context in the notification email -->
-        <input type="hidden" name="_subject" value="New Serializer install">
-        <input type="hidden" name="source" value="install page">
+      <form id="notify-form" class="notify-form">
 
         <div class="notify-row">
           <input
@@ -119,30 +102,38 @@
   <script>
     const form = document.getElementById('notify-form');
     const success = document.getElementById('notify-success');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = form.querySelector('.notify-btn');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
+
+      const formData = new FormData(form);
+      formData.append('access_key', '00bbd8e5-75df-40db-a327-4a36c827c050');
+
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
 
       try {
-        const res = await fetch(form.action, {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
+          body: formData,
         });
 
-        if (res.ok) {
+        const data = await response.json();
+
+        if (response.ok) {
           form.style.display = 'none';
           success.style.display = 'block';
         } else {
-          btn.textContent = 'Try again';
-          btn.disabled = false;
+          alert('Error: ' + data.message);
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
         }
       } catch {
-        btn.textContent = 'Try again';
-        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
       }
     });
   </script>
