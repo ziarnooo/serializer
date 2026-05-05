@@ -739,12 +739,35 @@ h1, h2, h3, h4, h5 {
 }
 
 @media (max-width: 600px) {
-  .demo-panel {
-    display: none;
+  .demo-body {
+    flex-direction: column;
   }
 
   .demo-form-area {
     border-right: none;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 24px 20px;
+  }
+
+  .demo-panel {
+    width: 100%;
+    min-height: 72px;
+    border-left: none;
+    border-top: none;
+  }
+
+  .demo-panel-top {
+    padding: 10px 16px;
+  }
+
+  .demo-panel-body {
+    padding: 4px 16px 16px;
+  }
+
+  .dp-steps {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 16px;
   }
 
   .demo-field {
